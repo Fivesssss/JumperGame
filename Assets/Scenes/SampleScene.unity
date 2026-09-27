@@ -2851,7 +2851,7 @@ MonoBehaviour:
   jumpForce: 9
   speedMultiplier: 6
   groundCheck: {fileID: 22648140}
-  checkRadius: 0.5
+  checkRadius: 0.15
   ground:
     serializedVersion: 2
     m_Bits: 256
