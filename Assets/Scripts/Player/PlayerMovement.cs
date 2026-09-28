@@ -27,11 +27,17 @@ public class PlayerMovement : MonoBehaviour
         //sprite flipping logic, becuase the sprite is facing left by default when moving right the x scale must be negative
         if (movementVector.x < 0)
         {
+            playerAnim.SetBool("isMoving", true);
             transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (movementVector.x > 0) 
+        else if (movementVector.x > 0)
         {
+            playerAnim.SetBool("isMoving", true);
             transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else 
+        {
+            playerAnim.SetBool("isMoving", false);
         }
 
         //make sure that space is pressed and that the player is on the floor
@@ -39,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         {
             movementVector.y = jumpForce;
             playerRB.linearVelocity = movementVector;
+            playerAnim.SetBool("isJump", true);
             hasJumped = true;
         }
     }
@@ -56,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
             //create a circle near groundCheck to see if it overlaps with the ground, this prevents wall jumps
             //or jumping when hitting the bottom of a floor
             hasJumped = !(Physics2D.OverlapCircle(groundCheck.transform.position, checkRadius, ground));
+            playerAnim.SetBool("isJump", false);
         }
     }
 }
