@@ -2908,6 +2908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setHealth: 3
+  healthUI: {fileID: 1554924179}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3505,8 +3506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullHeart: {fileID: -366685483, guid: f193af3422fd833498e3b72bb51ef7d0, type: 3}
   halfHeart: {fileID: 1342188410, guid: f193af3422fd833498e3b72bb51ef7d0, type: 3}
-  emptyheart: {fileID: 1325497334, guid: f193af3422fd833498e3b72bb51ef7d0, type: 3}
-  playerHealth: {fileID: 0}
+  emptyHeart: {fileID: 0}
   heartUis: []
 --- !u!1 &634825488
 GameObject:
@@ -263472,6 +263472,7 @@ GameObject:
   - component: {fileID: 1124854962}
   - component: {fileID: 1124854961}
   - component: {fileID: 1124854960}
+  - component: {fileID: 1124854963}
   m_Layer: 0
   m_Name: DoDamage
   m_TagString: Untagged
@@ -263595,6 +263596,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1124854963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124854959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c57bbe053fad4e4992e96230092b42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1152066959
 GameObject:
   m_ObjectHideFlags: 0
@@ -264285,8 +264298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullHeart: {fileID: -366685483, guid: f193af3422fd833498e3b72bb51ef7d0, type: 3}
   halfHeart: {fileID: 1342188410, guid: f193af3422fd833498e3b72bb51ef7d0, type: 3}
-  emptyheart: {fileID: 1325497334, guid: f193af3422fd833498e3b72bb51ef7d0, type: 3}
-  playerHealth: {fileID: 132054070}
+  emptyHeart: {fileID: 1325497334, guid: f193af3422fd833498e3b72bb51ef7d0, type: 3}
   heartUis:
   - {fileID: 1618510788}
   - {fileID: 888617310}

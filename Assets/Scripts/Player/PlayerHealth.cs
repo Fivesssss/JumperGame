@@ -3,24 +3,23 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float setHealth; //used to set player health in the unity insepctor
+    [SerializeField] HealthUI healthUI;
     private float health;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = setHealth;
+        healthUI.setHeartsFull();
     }
 
     public void doDamage(float damage) 
     {
-        if (health >= damage)
+        health -= damage;
+        healthUI.removeHearts(damage);
+
+        if (health <= 0) 
         {
-            health -= damage;
-        }
-        else 
-        {
-            health = 0;
-            //add death screen or something
             Destroy(gameObject);
         }
     }
@@ -30,10 +29,12 @@ public class PlayerHealth : MonoBehaviour
         if (health + amount < setHealth)
         {
             health += amount;
+            healthUI.addHearts(amount);
         }
         else if (health + amount >= setHealth) 
         {
             health = setHealth;
+
         }
     }
 
