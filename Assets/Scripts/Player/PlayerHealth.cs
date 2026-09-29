@@ -26,15 +26,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void addHealth(float amount) 
     {
-        if (health + amount < setHealth)
-        {
-            health += amount;
-            healthUI.addHearts(amount);
-        }
-        else if (health + amount >= setHealth) 
+        health += amount;
+        healthUI.addHearts(amount);
+        
+        //ensure health doesnt go above sethealth
+        if (health > setHealth) 
         {
             health = setHealth;
-
         }
     }
 

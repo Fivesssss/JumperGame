@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class TestDamage : MonoBehaviour
+public class TestHealth : MonoBehaviour
 {
-    [SerializeField] private float damage = 0.5f;
+    [SerializeField] private float heal = 0.5f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -11,7 +11,7 @@ public class TestDamage : MonoBehaviour
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
             if (playerHealth != null) 
             {
-                playerHealth.doDamage(damage);
+                playerHealth.addHealth(heal);
             }
         }
     }

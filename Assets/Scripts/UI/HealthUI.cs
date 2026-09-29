@@ -9,7 +9,7 @@ public class HealthUI : MonoBehaviour
     [SerializeField] private Image[] heartUis; //0 is the right most heart heartUis.length - 1 is the leftmost
 
     private int currentHeartIndex = 0;
-    private const float healthPerHeart = 0.5f; //each full heart is worth 1 health point in code
+    private const float healthPerHeart = 0.5f; //each full heart is worth 1 health point in code this never changes
 
     //for cases when hearts gained are more than the empty hearts, or when the player respawns or spawns
     public void setHeartsFull() 
@@ -19,15 +19,6 @@ public class HealthUI : MonoBehaviour
             heartUis[i].sprite = fullHeart;
         }
         currentHeartIndex = 0; //reset the heart index to the start
-    }
-
-    //used for cases when the damage done is more than the hearts avalible 
-    public void setHeartsEmpty() 
-    {
-        for (int i = 0; i < heartUis.Length; i++)
-        {
-            heartUis[i].sprite = emptyHeart;
-        }
     }
 
     public void removeHearts(float amount) 
@@ -59,6 +50,27 @@ public class HealthUI : MonoBehaviour
 
     public void addHearts(float amount) 
     {
+        while (amount > 0 && currentHeartIndex >= 0)
+        {
+            Image heart = heartUis[currentHeartIndex];
 
+            //this will change the heart sprite depending on if its empty or half to one more
+            if (heart.sprite == emptyHeart)
+            {
+                heart.sprite = halfHeart;
+            }
+            else if (heart.sprite == halfHeart)
+            {
+                heart.sprite = fullHeart;
+            }
+
+            //once the current heart is full move onto the next heart/previous heart in the array
+            if (heart.sprite == fullHeart && currentHeartIndex != 0)
+            {
+                currentHeartIndex -= 1;
+            }
+
+            amount -= healthPerHeart;
+        }
     }
 }
