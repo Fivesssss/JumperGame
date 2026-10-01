@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //add FSMs
     [SerializeField] private float jumpForce = 9f;
     [SerializeField] private float speedMultiplier = 6f;
     [SerializeField] private GameObject groundCheck; // the ground check location object
